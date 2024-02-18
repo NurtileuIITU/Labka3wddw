@@ -1,14 +1,6 @@
-//
-//  main.swift
-//  Labka3
-//
-//  Created by Nura on 18.02.2024.
-//
-
-
 import Foundation
 
-// Определение структуры Studentds
+// Определение структуры Student
 struct Student {
     var firstName: String
     var lastName: String
@@ -34,7 +26,7 @@ class StudentJournal {
     func displayStudentsInfo() {
         let sortedStudents = students.sorted { $0.averageGrade > $1.averageGrade }
         for student in sortedStudents {
-            print("Имя: \(student.firstName) \(student.lastName), Средний балл: \(student.averageGrade)")
+            print("Name: \(student.firstName) \(student.lastName), Average Grade: \(student.averageGrade)")
         }
     }
 
@@ -50,20 +42,21 @@ class StudentJournal {
     }
 }
 
-let журнал = StudentJournal()
+// Пример использования
+let journal = StudentJournal()
 
-журнал.addStudent(firstName: "Иван", lastName: "Иванов", averageGrade: 85.0)
-журнал.addStudent(firstName: "Мария", lastName: "Сидорова", averageGrade: 92.5)
-журнал.addStudent(firstName: "Алексей", lastName: "Петров", averageGrade: 78.3)
+journal.addStudent(firstName: "John", lastName: "Doe", averageGrade: 85.0)
+journal.addStudent(firstName: "Jane", lastName: "Smith", averageGrade: 92.5)
+journal.addStudent(firstName: "Bob", lastName: "Johnson", averageGrade: 78.3)
 
-журнал.displayStudentsInfo()
+journal.displayStudentsInfo()
 
-let среднийБалл = журнал.findAverageScore()
-print("Средний балл: \(среднийБалл)")
+let averageScore = journal.findAverageScore()
+print("Average Score: \(averageScore)")
 
-if let студентСНаивысшимСреднимБаллом = журнал.findStudentWithHighestGPA() {
-    print("Студент с наивысшим средним баллом: \(студентСНаивысшимСреднимБаллом.firstName) \(студентСНаивысшимСреднимБаллом.lastName), Средний балл: \(студентСНаивысшимСреднимБаллом.averageGrade)")
+if let highestGPAStudent = journal.findStudentWithHighestGPA() {
+    print("Student with highest GPA: \(highestGPAStudent.firstName) \(highestGPAStudent.lastName), GPA: \(highestGPAStudent.averageGrade)")
 }
 
-журнал.removeStudent(firstName: "Иван", lastName: "Иванов")
-журнал.displayStudentsInfo()
+journal.removeStudent(firstName: "John", lastName: "Doe")
+journal.displayStudentsInfo()
