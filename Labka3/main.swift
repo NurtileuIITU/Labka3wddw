@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Определение структуры Student
+// Определение структуры Studentds
 struct Student {
     var firstName: String
     var lastName: String
